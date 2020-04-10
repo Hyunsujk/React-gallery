@@ -3,11 +3,10 @@ import GalleryItem from "../GalleryItem/GelleryItem";
 
 class GalleryList extends Component {
   render() {
-    return (
-      <div>
-        <GalleryItem gallery={this.props.gallery} />
-      </div>
-    );
+    const galleryList = this.props.gallery.map((gallery, index) => {
+      return <GalleryItem key={index} gallery={gallery} />;
+    });
+    return <div>{galleryList}</div>;
   }
 }
 
