@@ -22,15 +22,9 @@ class App extends Component {
       url: "/gallery",
     })
       .then((response) => {
-        console.log("server response", response.data);
-        this.setState(
-          {
-            galleryItems: [...response.data],
-          },
-          () => {
-            console.log("new gallery list", this.state.galleryItems);
-          }
-        );
+        this.setState({
+          galleryItems: [...response.data],
+        });
       })
       .catch((err) => {
         console.log("Error:", err);
@@ -46,8 +40,6 @@ class App extends Component {
         <br />
         <p>Gallery goes here</p>
         <GalleryList gallery={this.state.galleryItems} />
-        {/* <img src="images/goat_small.jpg" />
-        <img src="/images/cat.jpg" /> */}
       </div>
     );
   }
