@@ -5,6 +5,8 @@ class GalleryItem extends Component {
     return (
       <div>
         <img src={this.props.gallery.path} alt="animal" />
+        <p>Likes:{this.props.gallery.likes}</p>
+        <button>Like</button>
       </div>
     );
   }
