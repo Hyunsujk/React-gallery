@@ -7,13 +7,13 @@ const galleryItems = [
   },
   {
     id: 2,
-    path: "../../public/images/cat.jpg",
+    path: "images/cat.jpg",
     description: "Photo of a grumpy cat.",
     likes: 0,
   },
   {
     id: 3,
-    path: "../../public/images/dog.jpg",
+    path: "images/dog.jpg",
     description: "Photo of a cute dog.",
     likes: 0,
   },
