@@ -8,13 +8,28 @@ const pool = require("../modules/pool");
 // PUT Route
 router.put("/like/:id", (req, res) => {
   const galleryId = req.params.id;
-  for (const galleryItem of galleryItems) {
-    if (galleryItem.id == galleryId) {
-      galleryItem.likes += 1;
-    }
-  }
-  res.sendStatus(200);
+  const galleryItem = req.body;
+  const queryText = `UPDATE "gallery" SET "likes"=$1, WHERE "id"=$2;`;
+  pool
+    .query(queryText, [galleryItem, galleryId])
+    .then((responseDB) => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log("Error:", err);
+      res.sendStatus(500);
+    });
 });
+
+// router.put("/like/:id", (req, res) => {
+//   const galleryId = req.params.id;
+//   for (const galleryItem of galleryItems) {
+//     if (galleryItem.id == galleryId) {
+//       galleryItem.likes += 1;
+//     }
+//   }
+//   res.sendStatus(200);
+// });
 
 router.put("/clicked/:id", (req, res) => {
   const galleryId = req.params.id;
@@ -31,19 +46,19 @@ router.put("/clicked/:id", (req, res) => {
 }); // END PUT Route
 
 // router.put("/:id", (req, res) => {
-//     const itemId = req.params.id;
-//     const completedItem = req.body;
-//     const queryText = `UPDATE "list" SET "item"=$1, "complete"=$2 WHERE "id"=$3;`;
-//     pool
-//       .query(queryText, [completedItem.item, completedItem.complete, itemId])
-//       .then((responseDB) => {
-//         res.sendStatus(200);
-//       })
-//       .catch((err) => {
-//         console.log("Error:", err);
-//         res.sendStatus(500);
-//       });
-//   });
+//   const itemId = req.params.id;
+//   const completedItem = req.body;
+//   const queryText = `UPDATE "list" SET "item"=$1, "complete"=$2 WHERE "id"=$3;`;
+//   pool
+//     .query(queryText, [completedItem.item, completedItem.complete, itemId])
+//     .then((responseDB) => {
+//       res.sendStatus(200);
+//     })
+//     .catch((err) => {
+//       console.log("Error:", err);
+//       res.sendStatus(500);
+//     });
+// });
 
 // GET Route
 
