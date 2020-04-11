@@ -12,7 +12,7 @@ class GalleryList extends Component {
         />
       );
     });
-    return <div>{galleryList}</div>;
+    return <table>{galleryList}</table>;
   }
 }
 
