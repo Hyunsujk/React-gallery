@@ -13,7 +13,7 @@ class GalleryItem extends Component {
     return (
       <div className="sideByside-GalleryItem">
         <div onClick={this.props.contentClicked(this.props.gallery.id)}>
-          {content}
+          <div className="content-GalleryItem">{content}</div>
         </div>
         <p>Likes:{this.props.gallery.likes}</p>
         <button onClick={this.props.updateGalleryLikes(this.props.gallery.id)}>
