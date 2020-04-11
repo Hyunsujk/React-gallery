@@ -15,10 +15,25 @@ class GalleryItem extends Component {
         <div onClick={this.props.contentClicked(this.props.gallery.id)}>
           <div className="content-GalleryItem">{content}</div>
         </div>
-        <p>Likes:{this.props.gallery.likes}</p>
-        <button onClick={this.props.updateGalleryLikes(this.props.gallery.id)}>
-          Like
-        </button>
+
+        <div className="likeDisplay-GalleryItem sideByside-GalleryItem">
+          <button
+            className="right-GalleryItem"
+            onClick={this.props.updateGalleryLikes(this.props.gallery.id)}
+          >
+            <span role="img" aria-label="heart">
+              ❤️
+            </span>{" "}
+            Love it!
+          </button>
+          {this.props.gallery.likes === 1 ? (
+            <p>{this.props.gallery.likes} person loved it!</p>
+          ) : this.props.gallery.likes > 1 ? (
+            <p>{this.props.gallery.likes} people loved it!</p>
+          ) : (
+            <p>Be the first one to love it!</p>
+          )}
+        </div>
       </div>
     );
   }
