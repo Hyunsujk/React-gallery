@@ -14,3 +14,11 @@ img {
   display: inline-block;
   margin: 10px;
 }
+
+.likeDisplay-GalleryItem {
+  text-align: left;
+}
+
+.right-GalleryItem {
+  text-align: right;
+}
