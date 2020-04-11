@@ -9,7 +9,6 @@ class App extends Component {
   };
 
   componentDidMount() {
-    console.log("in mount");
     this.getGallery();
   }
   //
@@ -17,19 +16,28 @@ class App extends Component {
   //----------------
 
   getGallery() {
-    axios({
-      method: "GET",
-      url: "/gallery",
-    })
+    axios
+      .get("/gallery")
       .then((response) => {
         this.setState({
-          galleryItems: [...response.data],
+          galleryItems: response.data,
         });
       })
       .catch((err) => {
         console.log("Error:", err);
       });
   }
+
+  updateGalleryLikes = (id) => (event) => {
+    axios
+      .put(`/gallery/like/${id}`)
+      .then((response) => {
+        this.getGallery();
+      })
+      .catch((err) => {
+        console.log("Error:", err);
+      });
+  };
 
   render() {
     return (
@@ -39,7 +47,10 @@ class App extends Component {
         </header>
         <br />
         <p>Gallery goes here</p>
-        <GalleryList gallery={this.state.galleryItems} />
+        <GalleryList
+          gallery={this.state.galleryItems}
+          updateGalleryLikes={this.updateGalleryLikes}
+        />
       </div>
     );
   }

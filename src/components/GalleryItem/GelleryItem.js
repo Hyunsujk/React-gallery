@@ -6,7 +6,9 @@ class GalleryItem extends Component {
       <div>
         <img src={this.props.gallery.path} alt="animal" />
         <p>Likes:{this.props.gallery.likes}</p>
-        <button>Like</button>
+        <button onClick={this.props.updateGalleryLikes(this.props.gallery.id)}>
+          Like
+        </button>
       </div>
     );
   }
