@@ -16,6 +16,7 @@ class App extends Component {
   // API SERVER CALLS
   //----------------
 
+  // get gallery items from server
   getGallery() {
     axios
       .get("/gallery")
