@@ -9,10 +9,11 @@ class GalleryList extends Component {
           key={index}
           gallery={gallery}
           updateGalleryLikes={this.props.updateGalleryLikes}
+          contentClicked={this.props.contentClicked}
         />
       );
     });
-    return <table>{galleryList}</table>;
+    return <div>{galleryList}</div>;
   }
 }
 

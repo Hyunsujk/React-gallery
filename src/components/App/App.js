@@ -11,6 +11,7 @@ class App extends Component {
   componentDidMount() {
     this.getGallery();
   }
+
   //
   // API SERVER CALLS
   //----------------
@@ -19,9 +20,14 @@ class App extends Component {
     axios
       .get("/gallery")
       .then((response) => {
-        this.setState({
-          galleryItems: response.data,
-        });
+        this.setState(
+          {
+            galleryItems: response.data,
+          },
+          () => {
+            console.log(this.state.galleryItems);
+          }
+        );
       })
       .catch((err) => {
         console.log("Error:", err);
@@ -39,6 +45,17 @@ class App extends Component {
       });
   };
 
+  contentClicked = (id) => (event) => {
+    axios
+      .put(`/gallery/clicked/${id}`)
+      .then((response) => {
+        this.getGallery();
+      })
+      .catch((err) => {
+        console.log("Error:", err);
+      });
+  };
+
   render() {
     return (
       <div className="App">
@@ -47,10 +64,13 @@ class App extends Component {
         </header>
         <br />
         <p>Gallery goes here</p>
-        <GalleryList
-          gallery={this.state.galleryItems}
-          updateGalleryLikes={this.updateGalleryLikes}
-        />
+        <div>
+          <GalleryList
+            gallery={this.state.galleryItems}
+            updateGalleryLikes={this.updateGalleryLikes}
+            contentClicked={this.contentClicked}
+          />
+        </div>
       </div>
     );
   }
