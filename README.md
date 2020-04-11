@@ -1,9 +1,18 @@
-# Project Name
-
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+# React Gallery
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+Duration: 2 days / weekend challenge
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+This application allows users to like posts. Built with React, axios, JavaScript, router get and put method.
+
+- every line of code has comment explaining its purpose
+
+## Usage
+
+- When user clicks image, image will be swapped with a description for the image.
+- When user clicks 'Love it!' button, number of likes will increase by 1
+
+## Screenshot
+
+![ScreenShot](React-Gallery.png)
