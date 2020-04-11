@@ -2,3 +2,8 @@ img {
   height: 100px;
   width: 100px;
 }
+
+.sideByside-GalleryItem {
+  display: inline-block;
+  margin: 10px;
+}

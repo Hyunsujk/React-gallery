@@ -11,7 +11,7 @@ class GalleryItem extends Component {
       content = <img src={this.props.gallery.path} alt="gallery" />;
     }
     return (
-      <div>
+      <div className="sideByside-GalleryItem">
         <div onClick={this.props.contentClicked(this.props.gallery.id)}>
           {content}
         </div>
