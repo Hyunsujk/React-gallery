@@ -5,6 +5,7 @@ const galleryItems = require("../modules/gallery.data");
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
 // PUT Route
+// increment number of likes in gallery.data.js when like button is clicked.
 router.put("/like/:id", (req, res) => {
   const galleryId = req.params.id;
   for (const galleryItem of galleryItems) {
@@ -15,6 +16,7 @@ router.put("/like/:id", (req, res) => {
   res.sendStatus(200);
 });
 
+// update status of isClicked in gallery.data.js every time the content is clicked.
 router.put("/clicked/:id", (req, res) => {
   const galleryId = req.params.id;
   for (const galleryItem of galleryItems) {
@@ -30,6 +32,7 @@ router.put("/clicked/:id", (req, res) => {
 }); // END PUT Route
 
 // GET Route
+// get the array of galleryItems
 router.get("/", (req, res) => {
   res.send(galleryItems);
 }); // END GET Route
